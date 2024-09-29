@@ -3,12 +3,12 @@ import { fileURLToPath, URL } from "node:url";
 import { getSidebar } from "./utils/getSidebar";
 
 export default defineConfig({
-  base: "/docs-blog/",
+  // base: "/docs-blog/",
   // 标签上显示的网站标题
   title: "4triumph",
   titleTemplate: "4triumph's docs",
   // 在标签上显示所的 logo
-  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  head: [["link", { rel: "icon", href: "/docs-blog/logo.png" }]],
 
   // 网站描述，有利于被搜索引擎捕获
   description: "Learning...",
