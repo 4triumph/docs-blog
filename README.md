@@ -1,1 +1,1 @@
-[文档网站](https://doc.4triumphe.top)
+[文档网站](https://docs.4triumphe.top/)
