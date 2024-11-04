@@ -1,8 +1,8 @@
-## 1.数组去重
+## 数组去重
 ```javascript
     var unique = arr => [...new Set(arr)]
 ```
-## 2.数组扁平化
+## 数组扁平化
 [1, [2, [3]]] => [1, 2, 3]
 ```javascript
 // 1.使用reduce
@@ -69,7 +69,24 @@ function flatten(arr) {
 const arr = [1, [2, [3]]];
 console.log(flatten(arr))
 ```
-## 3.模拟new操作符
+## 判断对象是否为空
+对象类型为Object|Array
+```javascript
+// O(n)
+var isEmpty = function(obj)
+ {
+    if(Array.isArray(obj)){
+        return obj.length === 0;
+    }
+    return Object.keys(obj).length === 0;
+};
+//o(1)
+var isEmpty = function(obj) {
+    for(let key in obj) return false
+    return true
+};
+```
+## 模拟new操作符
 ```javascript
 // fn构造函数  ...args不定数量的参数
 function myNew(fn, ...args) {
@@ -93,7 +110,7 @@ console.log(newPerson.name);
 console.log(newPerson.age);
 
 ```
-## 4.防抖节流
+## 防抖节流
 ### 防抖（debounce） 
 是在事件停止后的一段时间才执行，适用于防止短时间内多次触发事件，只在事件成后才执行一次。
 ### 节流（throttle）
