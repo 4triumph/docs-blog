@@ -42,6 +42,23 @@ var flat = function (arr, n) {
     return arr;
 };
 
+//上面两个控制扁平深度的方法在lt都会超时，以下是不超时版本
+var flat = function (arr, n) {
+    const ans = [];
+    const flatten = (item, deepth)=>{
+        for(const x of item){
+            if(Array.isArray(x) && deepth > 0){
+                flatten(x, deepth - 1);
+            }
+            else{
+                ans.push(x);
+            }
+        }
+    }
+    flatten(arr, n);
+    return ans;
+};
+
 // 递归便利版
 function flatten(arr) {
 	while(arr.some(item => Array.isArray(item))){
