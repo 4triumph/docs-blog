@@ -26,12 +26,22 @@ function flatten2(arr) {
 }
 
 // 3. 控制扁平深度
+// 递归
 function flatten3(arr, depth = 1) {
 	if (depth === 0) return arr
 	return arr.reduce((pre, cur) => {
 		return pre.concat(Array.isArray(cur) ? flatten3(cur, depth - 1) : cur)
 	}, [])
 }
+//循环
+var flat = function (arr, n) {
+    while(n > 0 && arr.some(item=>Array.isArray(item))){
+        arr = [].concat(...arr);
+        n -- ;
+    }
+    return arr;
+};
+
 // 递归便利版
 function flatten(arr) {
 	while(arr.some(item => Array.isArray(item))){
