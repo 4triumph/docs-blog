@@ -53,3 +53,40 @@ console.log(`num1=${num1}, num2=${num2}`)  // 这里会报错
 
  - console.log(parseFloat("12px"))
  // 12
+
+ ## Day3
+
+ ### 数组
+
+ #### 增加
+
+ arr.push() // 末尾添加
+
+ arr.unshift() // 开头添加
+
+ #### 删除
+
+ arr.pop() // 末尾删除
+
+ arr.shift() // 开头删除
+
+ arr.splice(起始位置，删除几个元素) // 任意位置删除
+
+ #### 查找
+
+ arr.indexOf() // 查找元素下标
+
+ arr.includes() // 查找元素是否存在
+
+### 匿名函数
+
+#### 立即执行函数
+
+~~~javascript
+(function(){ xxx  })();
+(function(){xxxx}());
+~~~
+
+>无需调用，立即执行，其实本质已经调用了
+>
+>多个立即执行函数之间用分号隔开
