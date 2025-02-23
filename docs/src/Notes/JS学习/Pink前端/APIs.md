@@ -94,3 +94,65 @@ html 标签，会解析标签
   box.classList.toggle("box");
 </script>
 ```
+
+
+### 表单
+#### 操作表单元素属性
+获取:DOM对象.属性名
+
+设置:DOM对象.属性名= 新值
+
+存在隐式转换，表单属性只接受布尔值
+
+>disabled:禁用
+>
+>checked:选中
+>
+>value:值
+
+`<button>` 标签获取值用 .innerHTML
+`<input>` 标签获取值用.value
+`<li>` 索引从1开始
+
+#### 自定义属性
+data-属性名
+
+在标签上一律以data-开头
+
+在DOM对象上一律以dataset对象方式获取
+
+### 定时器-间歇函数
+`setInterval` 是 JavaScript 中内置的函数，它的作用是间隔固定的时间自动重复执行另一个函数，也叫定时器函数。
+
+开启定时器
+
+```js
+setInterval(函数, 间隔时间)
+// 1
+setInterval(function(){
+    // 要执行的代码
+}, 间隔时间)
+
+// 2
+function fn(){
+    // 要执行的代码 
+}
+setInterval(fn, 间隔时间)
+
+
+```
+作用：每隔指定的时间就会自动执行一次函数，间隔时间单位是毫秒
+
+关闭定时器
+
+```js
+定时器变量名 = setInterval(函数, 间隔时间)
+clearInterval(定时器变量名)
+```
+作用：关闭定时器，参数是定时器变量名
+
+
+
+
+
+
