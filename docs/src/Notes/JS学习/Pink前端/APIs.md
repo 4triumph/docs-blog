@@ -327,6 +327,183 @@ function fn(callback) {
 setInterval(fn, 1000);
 ```
 
+## 事件流
+
+事件流是对事件执行过程的描述，了解事件的执行过程有助于加深对事件的理解，提升开发实践中对事件运用的灵活度。
+
+任意事件被触发时总会经历两个阶段：【捕获阶段】和【冒泡阶段】。
+
+简言之，捕获阶段是【从父到子】的传导过程，冒泡阶段是【从子向父】的传导过程。
+
+```javascript
+addEventListener(事件类型, 事件处理函数, 是否在捕获阶段执行);
+```
+
+### 捕获和冒泡
+
+捕获阶段：从父元素到子元素的过程。
+
+冒泡阶段：从子元素到父元素的过程。
+
+### 阻止冒泡
+
+```javascript
+事件对象.stopPropagation();
+```
+阻断事件流动传播，在冒泡阶段和捕获阶段都可以使用。
+
+### 阻止元素默认行为
+阻止链接跳转，表单域跳转
+```javascript
+e.preventDefault()
+```
+
+### 事件解绑
+
+**匿名函数无法解绑**
+
+```javascript
+DOM对象.removeEventListener(事件类型, 事件处理函数[, 是否在捕获阶段执行]);
+```
+
+事件对象中的 `ev.stopPropagation` 方法，专门用来阻止事件冒泡。
+
+### 鼠标经过事件区别
+
+>mouseover 和 mouseout 会有冒泡效果
+>
+>mouseenter  和 mouseleave   没有冒泡效果 (推荐)
+
+## 事件委托
+
+事件委托是一种事件处理模式，它可以将事件处理程序从一个元素委托给另一个元素。
+
+事件委托的优点是可以减少事件处理程序的数量，从而提高性能。
+
+```javascript
+父元素.addEventListener(事件类型, function (事件对象) {
+  // 事件处理函数
+});
+
+// 事件对象.target 可以获取到事件源
+```
+
+## 其他事件
+
+### 页面加载事件
+
+加载外部资源（如图片、外联CSS和JavaScript等）加载完毕时触发的事件
+
+有些时候需要等页面资源全部处理完了做一些事情
+
+**事件名：load**
+
+监听页面所有资源加载完毕：
+
+~~~javascript
+window.addEventListener('load', function() {
+    // xxxxx
+})
+
+// 可以针对某个资源进行监听
+img.addEventListener('load', function() {
+    // xxxxx
+})
+~~~
+
+#### DOMContentLoaded 事件
+DOM 结构加载完毕就会触发的事件，不会等待图片、CSS、JS等资源加载完毕
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    // xxxxx
+})
+
+// 可以针对某个资源进行监听
+img.addEventListener('DOMContentLoaded', function() {
+    // xxxxx
+})
+```
+
+### 元素滚动事件
+
+滚动条在滚动的时候持续触发的事件
+
+~~~javascript
+window.addEventListener('scroll', function() {
+    // xxxxx
+})
+~~~
+
+#### 页面滚动事件
+
+获取html元素的写法
+~~~javascript
+document.documentElement.scrollTop
+~~~
+
+获取body元素的写法
+~~~javascript
+document.body.scrollTop
+~~~
+
+~~~javascript
+window.addEventListener('scroll', function() {
+    console.log(window.scrollTop)
+})
+~~~
+
+### 页面尺寸事件
+
+会在窗口尺寸改变的时候触发事件：
+
+```javascript
+window.addEventListener('resize', function() {
+    // xxxxx
+})
+```
+
+#### 获取页面宽度高度
+包含border，margin，滚动条用于js获取元素大小，只读属性
+~~~javascript
+clientWidth
+clientHeight
+~~~
+
+#### 元素自身宽度高度
+
+内容 + padding + border + 滚动条等，只读属性
+~~~javascript
+offsetWidth
+offsetHeight
+~~~
+
+得到的位置以 带有定位的父级或者文档左上角为准
+
+获取元素位置时使用，只读属性
+```javascript
+offsetTop
+offsetLeft
+```
+
+#### 元素尺寸于位置-尺寸
+获取位置
+~~~javascript
+element.getBoundingClientRect()
+~~~
+方法返回元素的大小及其相对于视口的位置。
+
+返回值是一个 DOMRect 对象，包含以下属性：
+
+- x：元素左上角相对于视口的水平距离。
+- y：元素左上角相对于视口的垂直距离。
+- width：元素的宽度。
+- height：元素的高度。
+- top：元素左上角相对于视口的垂直距离。
+- right：元素右上角相对于视口的水平距离。
+- bottom：元素右下角相对于视口的垂直距离。
+- left：元素左上角相对于视口的水平距离。
+
 
 ## 属性选择器
 
