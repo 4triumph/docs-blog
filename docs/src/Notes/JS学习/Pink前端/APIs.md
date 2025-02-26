@@ -263,66 +263,68 @@ addListener 方法可以绑定多次，拥有事件更多特性。
 
 事件对象的属性和方法：
 
-| 属性      | 描述     |
-| -------- | -------- |
-| type     | 事件类型 |
-| target   | 事件源   |
-| currentTarget | 当前事件目标 |
-| preventDefault() | 阻止默认行为 |
-| stopPropagation() | 阻止事件冒泡 |
-| stopImmediatePropagation() | 阻止事件冒泡和默认行为 |
-| getModifierState() | 获取修饰键状态 |
-| isTrusted | 是否由用户触发 |
-| timeStamp | 事件发生的时间戳 |
-| pageX | 鼠标相对于页面的X坐标 |
-| pageY | 鼠标相对于页面的Y坐标 |
-| clientX | 鼠标相对于客户端的X坐标 |
-| clientY | 鼠标相对于客户端的Y坐标 |
-| screenX | 鼠标相对于屏幕的X坐标 |
-| screenY | 鼠标相对于屏幕的Y坐标 |
-| key | 键盘按键的键值 |
-| code | 键盘按键的键码 |
-| keyCode | 键盘按键的键值 |
-| charCode | 键盘按键的字符码 |
-| which | 键盘按键的键值 |
-| altKey | 是否按下Alt键 |
-| ctrlKey | 是否按下Ctrl键 |
-| shiftKey | 是否按下 Shift键 |
-| metaKey | 是否按下Meta键 |
-| detail | 鼠标滚轮滚动的距离 |
-| data | 文本输入的数据 |
-| value | 表单元素的值 |
-| checked | 复选框是否选中 |
-| selected | 下拉框是否选中 |
-| rows | 文本框的行数 |
-| cols | 文本框的列数 |
-| width | 媒体元素的宽度 |
-| height | 媒体元素的高度 |
-| volume | 媒体元素的音量 |
-| rate | 媒体元素的播放速率 |
-| currentTime | 媒体元素的当前播放时间 |
-| duration | 媒体元素的总时长 |
-| paused | 媒体元素是否暂停 |
-| ended | 媒体元素是否播放结束 |
-| seeking | 媒体元素是否正在查找 |
-| seekable | 媒体元素是否可以查找 |
-| buffered | 媒体元素已经缓冲的时间范围 |
-| networkState | 媒体元素的网络状态 |
-| readyState | 媒体元素的准备状态 |
+| 属性                       | 描述                       |
+| -------------------------- | -------------------------- |
+| type                       | 事件类型                   |
+| target                     | 事件源                     |
+| currentTarget              | 当前事件目标               |
+| preventDefault()           | 阻止默认行为               |
+| stopPropagation()          | 阻止事件冒泡               |
+| stopImmediatePropagation() | 阻止事件冒泡和默认行为     |
+| getModifierState()         | 获取修饰键状态             |
+| isTrusted                  | 是否由用户触发             |
+| timeStamp                  | 事件发生的时间戳           |
+| pageX                      | 鼠标相对于页面的 X 坐标    |
+| pageY                      | 鼠标相对于页面的 Y 坐标    |
+| clientX                    | 鼠标相对于客户端的 X 坐标  |
+| clientY                    | 鼠标相对于客户端的 Y 坐标  |
+| screenX                    | 鼠标相对于屏幕的 X 坐标    |
+| screenY                    | 鼠标相对于屏幕的 Y 坐标    |
+| key                        | 键盘按键的键值             |
+| code                       | 键盘按键的键码             |
+| keyCode                    | 键盘按键的键值             |
+| charCode                   | 键盘按键的字符码           |
+| which                      | 键盘按键的键值             |
+| altKey                     | 是否按下 Alt 键            |
+| ctrlKey                    | 是否按下 Ctrl 键           |
+| shiftKey                   | 是否按下 Shift 键          |
+| metaKey                    | 是否按下 Meta 键           |
+| detail                     | 鼠标滚轮滚动的距离         |
+| data                       | 文本输入的数据             |
+| value                      | 表单元素的值               |
+| checked                    | 复选框是否选中             |
+| selected                   | 下拉框是否选中             |
+| rows                       | 文本框的行数               |
+| cols                       | 文本框的列数               |
+| width                      | 媒体元素的宽度             |
+| height                     | 媒体元素的高度             |
+| volume                     | 媒体元素的音量             |
+| rate                       | 媒体元素的播放速率         |
+| currentTime                | 媒体元素的当前播放时间     |
+| duration                   | 媒体元素的总时长           |
+| paused                     | 媒体元素是否暂停           |
+| ended                      | 媒体元素是否播放结束       |
+| seeking                    | 媒体元素是否正在查找       |
+| seekable                   | 媒体元素是否可以查找       |
+| buffered                   | 媒体元素已经缓冲的时间范围 |
+| networkState               | 媒体元素的网络状态         |
+| readyState                 | 媒体元素的准备状态         |
 
 ### 环境对象
+
 环境对象是指触发事件时，浏览器会自动创建的一个对象，包含了事件的相关信息，如事件类型、事件源、事件坐标等。
 
-指的是函数内部特殊的变量this，代表当前函数运行时所处的环境
+指的是函数内部特殊的变量 this，代表当前函数运行时所处的环境
 
 ### 回调函数
+
 回调函数是指在一个函数中调用另一个函数，被调用的函数就是回调函数。回调函数通常用于异步操作，如定时器、事件监听、ajax 请求等。
 
 回调函数的优点是可以将代码分离，提高代码的可读性和可维护性。
 
 ```javascript
 function fn(callback) {
-  console.log("我是回调函数")
+  console.log("我是回调函数");
 }
 setInterval(fn, 1000);
 ```
@@ -350,12 +352,15 @@ addEventListener(事件类型, 事件处理函数, 是否在捕获阶段执行);
 ```javascript
 事件对象.stopPropagation();
 ```
+
 阻断事件流动传播，在冒泡阶段和捕获阶段都可以使用。
 
 ### 阻止元素默认行为
+
 阻止链接跳转，表单域跳转
+
 ```javascript
-e.preventDefault()
+e.preventDefault();
 ```
 
 ### 事件解绑
@@ -370,9 +375,9 @@ DOM对象.removeEventListener(事件类型, 事件处理函数[, 是否在捕获
 
 ### 鼠标经过事件区别
 
->mouseover 和 mouseout 会有冒泡效果
+> mouseover 和 mouseout 会有冒泡效果
 >
->mouseenter  和 mouseleave   没有冒泡效果 (推荐)
+> mouseenter 和 mouseleave 没有冒泡效果 (推荐)
 
 ## 事件委托
 
@@ -392,7 +397,7 @@ DOM对象.removeEventListener(事件类型, 事件处理函数[, 是否在捕获
 
 ### 页面加载事件
 
-加载外部资源（如图片、外联CSS和JavaScript等）加载完毕时触发的事件
+加载外部资源（如图片、外联 CSS 和 JavaScript 等）加载完毕时触发的事件
 
 有些时候需要等页面资源全部处理完了做一些事情
 
@@ -400,97 +405,107 @@ DOM对象.removeEventListener(事件类型, 事件处理函数[, 是否在捕获
 
 监听页面所有资源加载完毕：
 
-~~~javascript
-window.addEventListener('load', function() {
-    // xxxxx
-})
+```javascript
+window.addEventListener("load", function () {
+  // xxxxx
+});
 
 // 可以针对某个资源进行监听
-img.addEventListener('load', function() {
-    // xxxxx
-})
-~~~
+img.addEventListener("load", function () {
+  // xxxxx
+});
+```
 
 #### DOMContentLoaded 事件
-DOM 结构加载完毕就会触发的事件，不会等待图片、CSS、JS等资源加载完毕
+
+DOM 结构加载完毕就会触发的事件，不会等待图片、CSS、JS 等资源加载完毕
 
 ```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    // xxxxx
-})
+document.addEventListener("DOMContentLoaded", function () {
+  // xxxxx
+});
 
 // 可以针对某个资源进行监听
-img.addEventListener('DOMContentLoaded', function() {
-    // xxxxx
-})
+img.addEventListener("DOMContentLoaded", function () {
+  // xxxxx
+});
 ```
 
 ### 元素滚动事件
 
 滚动条在滚动的时候持续触发的事件
 
-~~~javascript
-window.addEventListener('scroll', function() {
-    // xxxxx
-})
-~~~
+```javascript
+window.addEventListener("scroll", function () {
+  // xxxxx
+});
+```
 
 #### 页面滚动事件
 
-获取html元素的写法
-~~~javascript
-document.documentElement.scrollTop
-~~~
+获取 html 元素的写法
 
-获取body元素的写法
-~~~javascript
-document.body.scrollTop
-~~~
+```javascript
+document.documentElement.scrollTop;
+```
 
-~~~javascript
-window.addEventListener('scroll', function() {
-    console.log(window.scrollTop)
-})
-~~~
+获取 body 元素的写法
+
+```javascript
+document.body.scrollTop;
+```
+
+```javascript
+window.addEventListener("scroll", function () {
+  console.log(window.scrollTop);
+});
+```
 
 ### 页面尺寸事件
 
 会在窗口尺寸改变的时候触发事件：
 
 ```javascript
-window.addEventListener('resize', function() {
-    // xxxxx
-})
+window.addEventListener("resize", function () {
+  // xxxxx
+});
 ```
 
 #### 获取页面宽度高度
-包含border，margin，滚动条用于js获取元素大小，只读属性
-~~~javascript
-clientWidth
-clientHeight
-~~~
+
+包含 border，margin，滚动条用于 js 获取元素大小，只读属性
+
+```javascript
+clientWidth;
+clientHeight;
+```
 
 #### 元素自身宽度高度
 
 内容 + padding + border + 滚动条等，只读属性
-~~~javascript
-offsetWidth
-offsetHeight
-~~~
+
+```javascript
+offsetWidth;
+offsetHeight;
+```
 
 得到的位置以 带有定位的父级或者文档左上角为准
 
 获取元素位置时使用，只读属性
+
 ```javascript
-offsetTop
-offsetLeft
+offsetTop;
+offsetLeft;
 ```
 
 #### 元素尺寸于位置-尺寸
+
 获取位置
-~~~javascript
-element.getBoundingClientRect()
-~~~
+
+```javascript
+element.getBoundingClientRect();
+```
+
 方法返回元素的大小及其相对于视口的位置。
 
 返回值是一个 DOMRect 对象，包含以下属性：
@@ -503,7 +518,6 @@ element.getBoundingClientRect()
 - right：元素右上角相对于视口的水平距离。
 - bottom：元素右下角相对于视口的垂直距离。
 - left：元素左上角相对于视口的水平距离。
-
 
 ## 属性选择器
 
@@ -529,6 +543,7 @@ input.addEventListener("focus", function () {
 ```
 
 ## 伪类选择器
+
 伪类选择器是一种 CSS 选择器，用于选择元素的特定状态。它可以根据元素的状态来选择元素，例如根据元素的位置、状态、类型等来选择元素。
 
 伪类选择器的语法如下：
@@ -542,6 +557,7 @@ input.addEventListener("focus", function () {
 伪类选择器的优点是可以根据元素的状态来选择元素，从而实现更加灵活的样式控制。
 
 ## trim
+
 trim() 方法用于删除字符串的头尾空白符，空白符包括：空格、制表符 tab、换行符等其他空白符等。
 
 trim() 方法不会改变原始字符串。
@@ -553,3 +569,118 @@ const str = "  Hello World!  ";
 const trimmedStr = str.trim();
 console.log(trimmedStr); // "Hello World!"
 ```
+
+## 日期
+
+### 日期对象
+
+日期对象是 JavaScript 中的一个内置对象，用于表示日期和时间。日期对象可以用于获取当前日期和时间，也可以用于创建自定义日期和时间。
+
+日期对象的构造函数是 Date()。
+
+日期对象的方法：
+
+- getFullYear()：获取年份
+- getMonth()：获取月份，从 0 开始计数，0 表示一月，11 表示十二月，所以得到**月份要+1**
+- getDate()：获取日期
+- getDay()：获取星期几，从 0 开始计数，0 表示星期天，1 表示星期一，以此类推
+- getHours()：获取小时
+- getMinutes()：获取分钟
+- getSeconds()：获取秒钟
+- getMilliseconds()：获取毫秒
+
+日期对象的属性：
+
+- Date.now()：获取当前时间的时间戳，单位为毫秒
+- Date.parse()：将日期字符串解析为时间戳，单位为毫秒
+
+### 时间戳
+
+时间戳是指从 1970 年 1 月 1 日 00:00:00 UTC 到当前时间的毫秒数。时间戳是一种表示时间的方式，它可以用于计算时间间隔、比较时间大小等。
+
+时间戳的优点是可以用于计算时间间隔、比较时间大小等，而且时间戳是一个数字，所以可以进行数学运算。
+
+#### 算法
+
+将来时间戳 - 过去时间戳 = 时间间隔（剩余时间毫秒数）
+
+剩余时间毫秒数转换为剩余时间的年月日时分秒就是倒计时时间
+
+#### 三种方法获取时间戳
+
+- Date.now()：获取当前时间的时间戳，单位为毫秒
+- Date.parse()：将日期字符串解析为时间戳，单位为毫秒
+- new Date().getTime()：获取当前时间的时间戳，单位为毫秒
+
+```javascript
+// 1
+const date = new Date();
+console.log(date.getTime());
+// 2
+console.log(+new Date()); // 无需实例化
+// 3
+console.log(Date.now()); // 只能获取当前时间戳
+```
+
+## DOM 节点
+
+### 查找节点
+
+```javascript
+const baby = document.querySelector(".baby");
+console.log(baby); // 返回dom对象
+console.log(baby.parentNode); // 返回dom对象
+console.log(baby.parentNode.parentNode); // 返回dom对象
+```
+
+#### 父节点
+
+- `parentNode` 获取父节点，以相对位置查找节点，
+
+#### 子节点
+
+- `childNodes` 获取全部的子节点，回车换行会被认为是空白文本节点
+- `children` 只获取元素类型节点
+
+#### 兄弟节点
+
+- `previousSibling` 获取前一个节点，以相对位置查找节点，实际应用中非常灵活。
+- `nextSibling` 获取后一个节点，以相对位置查找节点，实际应用中非常灵活。
+- `nextElementSibling` 下一个兄弟节点
+- `previousElementSibling` 上一个兄弟节点
+
+### 增加节点
+
+追加节点
+
+- `父元素.appendChild(要插入的元素)` 追加节点
+- `父元素.insertBefore(要插入的元素,在哪个元素前面)` 插入节点
+
+```javascript
+const baby = document.querySelector(".baby");
+const li = document.createElement("li");
+li.innerHTML = "新增节点";
+baby.appendChild(li);
+
+const li2 = document.createElement("li");
+li2.innerHTML = "新增节点2";
+baby.insertBefore(li2, baby.children[0]);
+```
+
+### 克隆节点
+
+- `元素.cloneNode(true)` 克隆节点
+
+### 删除节点
+
+- `父元素.removeChild(要删除的元素)` 删除节点
+
+## M端事件
+### 移动端事件
+
+- `touchstart` 手指触摸屏幕
+- `touchmove` 手指在屏幕上移动
+- `touchend` 手指从屏幕上离开
+
+
+
