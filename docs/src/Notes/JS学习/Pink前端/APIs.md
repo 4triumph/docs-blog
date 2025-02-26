@@ -10,6 +10,16 @@ graph LR
     A([Web APIs]):::startend --> B(DOM):::process --> D(操作网页内容)
     B --> E(浏览器根据html标签生成的js对象)
     A --> C(BOM):::process
+    C --> F(浏览器对象)
+```
+
+```mermaid
+graph TD
+    A[window] --> B[navigator]
+    A[window] --> C[document]
+    A[window] --> D[location]
+    A[window] --> E[history]
+    A[window] --> F[screen]
 ```
 
 ## DOM
@@ -95,6 +105,12 @@ html 标签，会解析标签
 </script>
 ```
 
+## BOM
+
+BOM 是浏览器对象类型，它提供了对浏览器窗口和框架进行访问的对象。
+
+所有通过 var 定义的变量都是全局变量
+
 ## 表单
 
 ### 操作表单元素属性
@@ -153,6 +169,36 @@ clearInterval(定时器变量名);
 ```
 
 作用：关闭定时器，参数是定时器变量名
+
+## 定时器-延时函数
+
+`setTimeout` 是 JavaScript 中内置的函数，它的作用是在指定的时间后执行另一个函数，也叫定时器函数.平时只执行一次，省略 window
+
+开启定时器
+
+```js
+setTimeout(回调函数, 等待的毫秒数);
+```
+
+清楚延时函数
+
+```js
+let timer = setTimeout(函数, 等待的毫秒数);
+clearTimeout(timer);
+```
+
+```js
+// 1
+setTimeout(function () {
+  // 要执行的代码
+}, 时间);
+
+// 2
+function fn() {}
+setTimeout(fn, 时间);
+```
+
+作用：在指定的时间后执行一次函数，时间单位是毫秒
 
 ## 事件监听
 
@@ -675,12 +721,119 @@ baby.insertBefore(li2, baby.children[0]);
 
 - `父元素.removeChild(要删除的元素)` 删除节点
 
-## M端事件
+## M 端事件
+
 ### 移动端事件
 
 - `touchstart` 手指触摸屏幕
 - `touchmove` 手指在屏幕上移动
 - `touchend` 手指从屏幕上离开
 
+## js 执行机制
+
+- 同步代码：从上到下依次执行
+- 异步代码：不会阻塞代码的执行，会在异步代码执行完毕后再执行
+
+异步任务三种类型
+- 宏任务：setTimeout、setInterval、setImmediate、I/O、UI 渲染
+- 微任务：Promise、MutationObserver
+- 任务队列：宏任务队列、微任务队列
+
+宏任务队列和微任务队列是两个独立的队列，它们之间没有任何关系。
+
+1.先执行执行栈中的同步任务
+
+2.异步任务放入任务队列中
+
+```mermaid
+graph TB
+    A[主线程] --> B[同步任务]
+    A --> C[Web API]
+    C --> D[异步任务]
+    D --> E[任务队列]
+    E --> F[事件循环]
+    F --> A
+    E --> G[主线程空闲]
+    G --> H[执行任务队列中的回调]
+    H --> A
+
+    B --> A
+    D --> C
+```
+
+## location对象
+数据类型是对象，拆分保存URL地址信息的各个组成部分
+
+常用属性和方法
+- `location.search` 获取地址中携带的参数，符号？后面的部分
+- `location.hash` 获取或设置URL的hash值，符号#后面的部分
+- `location.port` 获取或设置端口号
+- `location.href` 获取或设置整个URL
+- `location.protocol` 获取或设置协议
+- `location.hostname` 获取或设置主机名号
+- `location.reload()` 重新加载当前页面,括号里true表示强制刷新
+
+## navigator对象
+数据类型是对象，保存浏览器的相关信息
+
+常用属性和方法
+- `navigator.userAgent` 获取浏览器的用户代理字符串
+- `navigator.platform` 获取浏览器的操作系统平台
+- `navigator.language` 获取浏览器的语言设置
+- `navigator.cookieEnabled` 判断浏览器是否启用了cookie
+- `navigator.onLine` 判断浏览器是否在线
+
+## history对象
+数据类型是对象，保存浏览器的历史记录
+
+常用属性和方法
+- `history.length` 获取历史记录的长度
+- `history.back()` 回退到上一个页面
+- `history.forward()` 前进到下一个页面
+- `history.go()` 前进或回退指定的页面数
+- `history.pushState()` 添加新的历史记录
+
+## 本地存储
+### 本地存储的特点
+- 数据存储在浏览器中，不会随着页面的关闭而消失
+- 数据存储在浏览器中，不会随着页面的刷新而消失
+- 数据存储在浏览器中，不会随着浏览器的关闭而消失
+- 数据存储在浏览器中，不会随着浏览器的刷新而消失
+
+### 本地存储的方法
+- `localStorage.setItem(key, value)` 存储数据
+- `localStorage.getItem(key)` 获取数据
+- `localStorage.removeItem(key)` 删除数据
+- `localStorage.clear()` 清空数据
+
+### 本地存储的注意事项
+- 本地存储只能存储字符串类型的数据
+
+### 本地存储分离-sessionStorage
+- `sessionStorage.setItem(key, value)` 存储数据
+- `sessionStorage.getItem(key)` 获取数据
+- `sessionStorage.removeItem(key)` 删除数据
+- `sessionStorage.clear()` 清空数据
+
+json数据
+- `JSON.stringify(obj)` 将对象转换为字符串
+- `JSON.parse(str)` 将字符串转换为对象
+
+
+### 本地存储分离-cookie
+- `document.cookie = "key=value"` 存储数据
+- `document.cookie` 获取数据
+
+
+## 数组方法
+### map
+- `map` 方法会创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+- `map` 方法不会改变原数组
+- `map` 方法不会对空数组进行检测
+
+### forEach
+- `forEach` 方法会遍历数组中的每个元素，并将每个元素传递给回调函数，没有返回值
+- `forEach` 方法不会改变原数组
+- `forEach` 方法不会对空数组进行检测
 
 
