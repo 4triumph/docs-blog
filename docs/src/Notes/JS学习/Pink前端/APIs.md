@@ -735,6 +735,7 @@ baby.insertBefore(li2, baby.children[0]);
 - 异步代码：不会阻塞代码的执行，会在异步代码执行完毕后再执行
 
 异步任务三种类型
+
 - 宏任务：setTimeout、setInterval、setImmediate、I/O、UI 渲染
 - 微任务：Promise、MutationObserver
 - 任务队列：宏任务队列、微任务队列
@@ -761,32 +762,38 @@ graph TB
     D --> C
 ```
 
-## location对象
-数据类型是对象，拆分保存URL地址信息的各个组成部分
+## location 对象
+
+数据类型是对象，拆分保存 URL 地址信息的各个组成部分
 
 常用属性和方法
+
 - `location.search` 获取地址中携带的参数，符号？后面的部分
-- `location.hash` 获取或设置URL的hash值，符号#后面的部分
+- `location.hash` 获取或设置 URL 的 hash 值，符号#后面的部分
 - `location.port` 获取或设置端口号
-- `location.href` 获取或设置整个URL
+- `location.href` 获取或设置整个 URL
 - `location.protocol` 获取或设置协议
 - `location.hostname` 获取或设置主机名号
-- `location.reload()` 重新加载当前页面,括号里true表示强制刷新
+- `location.reload()` 重新加载当前页面,括号里 true 表示强制刷新
 
-## navigator对象
+## navigator 对象
+
 数据类型是对象，保存浏览器的相关信息
 
 常用属性和方法
+
 - `navigator.userAgent` 获取浏览器的用户代理字符串
 - `navigator.platform` 获取浏览器的操作系统平台
 - `navigator.language` 获取浏览器的语言设置
-- `navigator.cookieEnabled` 判断浏览器是否启用了cookie
+- `navigator.cookieEnabled` 判断浏览器是否启用了 cookie
 - `navigator.onLine` 判断浏览器是否在线
 
-## history对象
+## history 对象
+
 数据类型是对象，保存浏览器的历史记录
 
 常用属性和方法
+
 - `history.length` 获取历史记录的长度
 - `history.back()` 回退到上一个页面
 - `history.forward()` 前进到下一个页面
@@ -794,46 +801,136 @@ graph TB
 - `history.pushState()` 添加新的历史记录
 
 ## 本地存储
+
 ### 本地存储的特点
+
 - 数据存储在浏览器中，不会随着页面的关闭而消失
 - 数据存储在浏览器中，不会随着页面的刷新而消失
 - 数据存储在浏览器中，不会随着浏览器的关闭而消失
 - 数据存储在浏览器中，不会随着浏览器的刷新而消失
 
 ### 本地存储的方法
+
 - `localStorage.setItem(key, value)` 存储数据
 - `localStorage.getItem(key)` 获取数据
 - `localStorage.removeItem(key)` 删除数据
 - `localStorage.clear()` 清空数据
 
 ### 本地存储的注意事项
+
 - 本地存储只能存储字符串类型的数据
 
 ### 本地存储分离-sessionStorage
+
 - `sessionStorage.setItem(key, value)` 存储数据
 - `sessionStorage.getItem(key)` 获取数据
 - `sessionStorage.removeItem(key)` 删除数据
 - `sessionStorage.clear()` 清空数据
 
-json数据
+json 数据
+
 - `JSON.stringify(obj)` 将对象转换为字符串
 - `JSON.parse(str)` 将字符串转换为对象
 
-
 ### 本地存储分离-cookie
+
 - `document.cookie = "key=value"` 存储数据
 - `document.cookie` 获取数据
 
-
 ## 数组方法
+
 ### map
+
 - `map` 方法会创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
 - `map` 方法不会改变原数组
 - `map` 方法不会对空数组进行检测
 
 ### forEach
+
 - `forEach` 方法会遍历数组中的每个元素，并将每个元素传递给回调函数，没有返回值
 - `forEach` 方法不会改变原数组
 - `forEach` 方法不会对空数组进行检测
 
+## 正则表达式
+
+1. 定义规则
+
+```JavaScript
+  const 变量名 =  /表达式/
+```
+
+- 其中`/   /`是正则表达式字面量
+- 正则表达式也是`对象 `
+
+2. 使用正则
+
+- `reg.test(被检测的字符串)方法` 用来查看正则表达式与指定的字符串是否匹配，如果正则表达式与指定的字符串匹配 ，返回`true`，否则`false`
+
+- `reg.exec(被检测字符串)`检查符合规则的字符串，如果匹配成功，返回一个数组，否则返回 null
+
+## 元字符
+
+### 边界符
+
+- `.` 匹配除换行符以外的任意字符
+- `\w` 匹配字母或数字或下划线或汉字
+- `\s` 匹配任意的空白符
+- `\d` 匹配数字
+- `\b` 匹配单词的边界
+- `^` 匹配字符串的开始
+- `$` 匹配字符串的结束
+
+### 量词
+
+设定某个模式出现的次数
+
+- `*` 重复零次或更多次
+- `+` 重复一次或更多次
+- `?` 重复零次或一次
+- `{n}` 重复 n 次
+- `{n,}` 重复 n 次或更多次
+- `{n,m}` 重复 n 到 m 次
+
+### 字符类
+
+- `[]` 匹配括号内的任意字符
+- `[^]` 匹配除了括号内的字符的任意字符
+- `[a-z]` 匹配 a 到 z 范围内的任意字符
+- `[0-9]` 匹配 0 到 9 范围内的任意字符
+- `[a-zA-Z0-9]` 匹配 a 到 z 或 A 到 Z 或 0 到 9 范围内的任意字符
+
+加了^ $ 就变成了精确匹配,只能匹配到指定的字符串；不加就是模糊匹配
+
+#### 预定义
+
+- `\d` 匹配数字
+- `\D` 匹配非数字
+- `\w` 匹配字母或数字或下划线或汉字
+- `\W` 匹配非字母或数字或下划线或汉字
+- `\s` 匹配任意的空白符
+- `\S` 匹配任意的非空白符
+- `\b` 匹配单词的边界
+
+日期格式
+
+```JavaScript
+const reg = /^\d{4}-\d{2}-\d{2}$/
+```
+
+### 修饰符
+
+```js
+/表达式/修饰符
+```
+
+- `i` 忽略大小写
+- `g` 全局匹配
+- `m` 多行匹配
+
+```js
+字符串.replace(/正则表达式/, "替换的文本");
+```
+
+- `|` 或
+- `()` 分组
 
