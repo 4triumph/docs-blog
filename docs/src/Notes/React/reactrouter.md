@@ -1,3 +1,47 @@
+# react-router
+## Outlet
+Outlet 是 React Router 中的一个组件，用于渲染嵌套路由的内容。
+
+```js
+<Route path="/" element={<Layout />}>
+  <Route index element={<Home />} />
+  <Route path="about" element={<About />} />
+  <Route path="contact" element={<Contact />} />
+</Route>;
+```
+
+在这个例子中，Layout 组件包含了 Outlet 组件，它会根据当前路由的路径渲染相应的子组件。
+
+```js
+function Layout() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+}
+
+function Home() {
+  return <h1>Home</h1>;
+}
+
+function About() {
+  return <h1>About</h1>;  
+} 
+function Contact() {
+  return <h1>Contact</h1>;  
+}
+
+```
+
+当访问 /about 时，Layout 组件会渲染 Header 和 Footer，然后 Outlet 组件会渲染 About 组件。
+
+当访问 /contact 时，Layout 组件会渲染 Header 和 Footer，然后 Outlet 组件会渲染 Contact 组件。
+
+当访问 / 时，Layout 组件会渲染 Header 和 Footer，然后 Outlet 组件会渲染 Home 组件。
+
 ## useParams 的作用
 
 useParams 是 react-router-dom 提供的一个 Hook，用于获取 URL 路径中的动态参数。
